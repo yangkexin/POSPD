@@ -1,5 +1,5 @@
 # POSPD
-POS-constrained Parallel Decoding for Non-autoregressive Generation
+POS-constrained Parallel Decoding for Non-autoregressive Generation. Paper link: https://aclanthology.org/2021.acl-long.467.pdf.  
 ### Requirements
 ### Datasets
 We use four datasets to evaluate POSPD, which can be obtained as follows:
