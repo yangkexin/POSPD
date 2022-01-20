@@ -9,11 +9,15 @@ and the remaining 4160 for testing. Please first get access to the origin datase
 - SQuAD 1.1 https://rajpurkar.github.io/SQuAD-explorer/
 - WMT14 (DE-EN) https://www.statmt.org/wmt14/translation-task.html
 ### POS Tagging
-0. Setup
+Setup
 > cd fairseq9/  
 > pip install --editable .  
 
-Here we take training POS Tagging on wmt14 as an example.  
+Here we take training POS Tagging on wmt14 as an example. 
+
+0. Getting POS tagging data for BPE words  
+To tag the BPE words, we propose a simple but effective subword-level POS tagging method for our POS predictor. which can be found in process_pos_data.ipynb
+
 1. Preprossing data for fairseq  
 As POS predictor needs the form of training example as <source sentence, target sentence, target POS sequnence>, we process these data repectively. Then, we put them into the same folder.  
 - For <source sentence, target sentence>
@@ -66,6 +70,9 @@ Finally, make sure all the datafile are in sibling directory named data/wmt14_da
    --lenpen 2 \
    --beam 5 --remove-bpe --results-path #fill with the user dir# \
    --task translation_self_pos_v2
+   
+4. Processing POS Tagging for CMLM and Disco
+   
 
 ### Constraining NAG
   
