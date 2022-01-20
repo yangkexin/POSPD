@@ -16,7 +16,7 @@ Setup
 Here we take training POS Tagging on wmt14 as an example. 
 
 0. Getting POS tagging data for BPE words  
-To tag the BPE words, we propose a simple but effective subword-level POS tagging method for our POS predictor. which can be found in process_pos_data.ipynb
+To tag the BPE words, we propose a simple but effective subword-level POS tagging method for our POS predictor. which can be found in data/process_pos_data.ipynb
 
 1. Preprossing data for fairseq  
 As POS predictor needs the form of training example as <source sentence, target sentence, target POS sequnence>, we process these data repectively. Then, we put them into the same folder.  
