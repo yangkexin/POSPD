@@ -28,7 +28,7 @@ As POS predictor needs the form of training example as <source sentence, target 
 --destdir data-bin/wmt14_data/bpe \
 --workers 40 --joined-dictionary  
 
-- For <target POS sequnence>    
+- For \<target POS sequnence>    
 > fairseq-preprocess \
    --source-lang tgt --target-lang tgt --only-source \
    --trainpref data/wmt14_data/pos/train --validpref data/wmt14_data/pos/valid --testpref data/wmt14_data/pos/test\
