@@ -76,4 +76,13 @@ Finally, make sure all the datafile are in sibling directory named data/wmt14_da
    
 
 ### Constraining NAG
-  
+- DisCo  
+0. Setup
+> cd disco/  
+> pip install --editable .
+1.Processing
+python preprocess.py \
+   --source-lang src --target-lang tgt \
+   --trainpref ../data/wmt14_data/train --validpref ../data/wmt14_data/valid --testpref ../data/wmt14_data/test \
+   --destdir ../data-bin/wmt14_data/bpe  \
+   --workers 60  --joined-dictionary
