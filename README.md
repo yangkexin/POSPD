@@ -79,10 +79,21 @@ Finally, make sure all the datafile are in sibling directory named data/wmt14_da
 - DisCo  
 0. Setup
 > cd disco/  
-> pip install --editable .
-1.Processing
-python preprocess.py \
+> pip install --editable .  
+1. Data Processing  
+> python preprocess.py \
    --source-lang src --target-lang tgt \
    --trainpref ../data/wmt14_data/train --validpref ../data/wmt14_data/valid --testpref ../data/wmt14_data/test \
    --destdir ../data-bin/wmt14_data/bpe  \
    --workers 60  --joined-dictionary
+   
+  2. Training  
+  > python train.py ../data-bin/wmt14_data/bpe --arch disco_transformer\
+   --criterion label_smoothed_length_cross_entropy --label-smoothing 0.1 --lr 5e-4 \
+   --warmup-init-lr 1e-7 --min-lr 1e-9 --lr-scheduler inverse_sqrt --warmup-updates 10000 \
+   --optimizer adam --adam-betas '(0.9, 0.999)' --adam-eps 1e-6 --task translation_self \
+   --max-tokens 6000 --weight-decay 0.01 --dropout 0.3 --encoder-layers 6 --encoder-embed-dim 512 \
+   --decoder-layers 6 --decoder-embed-dim 512 --fp16 --max-source-positions 10000 \
+   --max-target-positions 10000 --seed 1 \
+   --save-dir checkpoint/wmt14_without_distill/ --dynamic-masking  --ignore-eos-loss --share-all-embeddings \
+    --skip-invalid-size-inputs-valid-test
