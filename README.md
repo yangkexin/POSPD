@@ -71,7 +71,8 @@ Finally, make sure all the datafile are in sibling directory named data/wmt14_da
    --beam 5 --remove-bpe --results-path #fill with the user dir# \
    --task translation_self_pos_v2
    
-4. Processing POS Tagging for CMLM and Disco
+4. Processing POS Tagging for CMLM and DisCo 
+   Here we take CMLM as an example, you can change the corresponding file names for processing DisCo. Please run data/
    
 
 ### Constraining NAG
